@@ -5,7 +5,7 @@ IFS='
 
 for line in $(cat scripts/origcllindex.txt | grep -v '^\s*#')
 do
-  item=$(echo $line | sed 's/[(,:].*//' | sed 's/^\s*//' | sed 's/\\/\\\\/g')
+  item=$(echo $line | sed 's/[(,:].*//' | sed 's/^[[:space:]]*//' | sed 's/\\/\\\\/g')
 #  echo "line: $line"
 #  echo "item: $item"
   count=$(grep "\<$item\>" [0-9]*.xml | wc -l)

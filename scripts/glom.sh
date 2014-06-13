@@ -22,7 +22,7 @@ sed '/<?xml version="1.0"?>/d' | \
 sed 's;</section>;;' >>$chapter.xml
 echo >>$chapter.xml
 
-for suffix in $(find $1 -type f -name '*.html' | sed -e "s;^$1/*;;" | sort -t/ -k1n)
+for suffix in $(find $1 -type f -name '*.html' | sed -e "s;^$1/*;;" | LC_ALL=C sort -t/ -k1n)
 do
   file="$1$suffix"
   echo $file

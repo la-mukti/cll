@@ -9,7 +9,7 @@ do
   echo "*********************************************************** $short"
 
   xsltproc --path . --novalid make_examples.xsl $file | \
-    sed -e 's/<jbo>[0-9.]*)*\s*/<jbo>/g' > $short.tmp
+    sed -e 's/<jbo>[0-9.]*)*[[:space:]]*/<jbo>/g' > $short.tmp
 
   randnum=$(./insert_ids.pl $short.tmp $short.tmp.2 $randnum)
 
